@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from utils.recipes.factory import make_recipe
 
 
 def Home(request):
     return render(request, 'recipes/pages/home.html', context={
-        'nome': 'Vitor Hirt',
+        'recipes': [make_recipe() for _ in range(9)],
     })
 
 
 def Recipe(request, id):
     return render(request, 'recipes/pages/recipe-view.html', context={
-        'nome': 'Vitor Hirt',
+        'recipe': make_recipe(),
     })
