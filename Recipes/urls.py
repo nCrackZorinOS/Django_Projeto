@@ -1,7 +1,8 @@
 from django.urls import path
-from Recipes.views import Home
+from . import views  # abreviação de importação 
 
 
 urlpatterns = [
-    path('', Home),
+    path('', views.Home),
+    path('recipes/<int:id>/', views.Recipe),  # tornar as urls mais seguras 
 ]
